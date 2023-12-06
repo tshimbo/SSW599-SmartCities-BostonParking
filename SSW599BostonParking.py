@@ -6,12 +6,12 @@ from folium.plugins import MarkerCluster
 csv_file_path = "Parking_Meters.csv"
 df = pd.read_csv(csv_file_path)
 
-# Drop rows with missing latitude or longitude values
-df = df.dropna(subset=['LATITUDE', 'LONGITUDE'])
+# Drop rows with missing latitude, longitude, or ObjectID values
+df = df.dropna(subset=['LATITUDE', 'LONGITUDE', 'OBJECTID'])
 
 # Check if there are any remaining missing values
-if df[['LATITUDE', 'LONGITUDE']].isnull().values.any():
-    print("Warning: There are still missing values in LATITUDE or LONGITUDE columns.")
+if df[['LATITUDE', 'LONGITUDE', 'OBJECTID']].isnull().values.any():
+    print("Warning: There are still missing values in LATITUDE, LONGITUDE, or OBJECTID columns.")
 
 # Create a folium map centered at the mean coordinates of your data
 map_center = [df['LATITUDE'].mean(), df['LONGITUDE'].mean()]
@@ -25,7 +25,7 @@ for index, row in df.iterrows():
     coordinates = [row['LATITUDE'], row['LONGITUDE']]
 
     # Customize the popup content based on your CSV columns
-    popup_text = f"Meter ID: {row['METER_ID']}<br>Vendor: {row['VENDOR']}"
+    popup_text = f"Object ID: {row['OBJECTID']}<br>Base Rate: {row['BASE_RATE']}<br>Vendor: {row['VENDOR']}"
 
     # Create a marker with popup
     marker = folium.Marker(location=coordinates, popup=popup_text)
