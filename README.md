@@ -4,13 +4,18 @@ Our project seeks to alleviate the persistent challenge of finding parking in Bo
 Link to API: https://bostonopendata-boston.opendata.arcgis.com/datasets/boston::parking-meters/about
 <<<<<<< HEAD
 After running the SSW599BostonParking.py file, an interactive map with popup should appear within the folder structure and allow you to see a map of all of the Boston Parking meters
-=======
 
 How to run locally :
 
 1. Download the following modules :
-   $pip install pandas
+
+```
+$pip install pandas
+```
+
+```
 $pip install folium
+```
 
 2. Once the installations are complete, run SSW599BostonParking.py
 
