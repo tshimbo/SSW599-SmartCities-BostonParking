@@ -20,7 +20,7 @@ mymap = folium.Map(location=map_center, zoom_start=12)
 
 marker_cluster = MarkerCluster().add_to(mymap)
 
-# add markers for everey CSV data point
+# add markers for every CSV data point
 for index, row in df.iterrows():
     coordinates = [row['LATITUDE'], row['LONGITUDE']]
 
