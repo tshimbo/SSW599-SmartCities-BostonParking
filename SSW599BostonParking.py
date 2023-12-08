@@ -27,9 +27,9 @@ for index, row in df.iterrows():
     # map pointer data showing specific things
     popup_text = f"Object ID: {row['OBJECTID']}<br>Base Rate: {row['BASE_RATE']}<br>Vendor: {row['VENDOR']}"
 
-    # Crreate marker with the popup data
+    # create marker with the popup data
     marker = folium.Marker(location=coordinates, popup=popup_text)
     marker.add_to(marker_cluster)
 
-# saveing map as HTML
+# saving map as HTML
 mymap.save("Boston_Parking_Map.html")
