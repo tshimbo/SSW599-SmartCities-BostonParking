@@ -1,15 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load the CSV file into a Pandas DataFrame
+# load csv into dataframe
 file_path = 'Parking_Meters.csv'
 data = pd.read_csv(file_path)
 
-# Group data by street and calculate the mean meter cost for each street
+# grouping the data by street
+# calculation for mean meter cost per street
 street_meter_costs = data.groupby(
     'STREET')['BASE_RATE'].mean().sort_values(ascending=False).head(20)
 
-# Plotting the top 20 streets with the highest mean meter costs
+# plot the top 20 streets with the highest mean meter costs
 plt.figure(figsize=(12, 8))
 street_meter_costs.plot(kind='bar', color='skyblue')
 plt.title('Top 20 Streets with Highest Mean Meter Costs')
