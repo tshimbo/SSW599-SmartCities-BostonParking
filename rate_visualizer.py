@@ -1,4 +1,6 @@
 import pandas as pd
+import os
+
 import matplotlib.pyplot as plt
 
 # load csv into dataframe
@@ -18,4 +20,6 @@ plt.xlabel('Street')
 plt.ylabel('Mean Meter Cost')
 plt.xticks(rotation=90)
 plt.tight_layout()
+os.makedirs('charts', exist_ok=True)
+plt.savefig(os.path.join('charts', 'top_streets_by_rate.png'), dpi=110)
 plt.show()

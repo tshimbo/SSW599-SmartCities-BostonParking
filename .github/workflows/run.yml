@@ -1,0 +1,30 @@
+name: Run
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  scripts:
+    runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Build the interactive map
+        run: python SSW599BostonParking.py && test -s Boston_Parking_Map.html
+      - name: Build the charts
+        run: |
+          python rate_visualizer.py
+          python meter_count_visualizer.py
+          test -s charts/top_streets_by_rate.png
+          test -s charts/meter_count_by_street.png

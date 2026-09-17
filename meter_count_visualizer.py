@@ -1,4 +1,6 @@
 import pandas as pd
+import os
+
 import matplotlib.pyplot as plt
 
 # load csv into dataframe
@@ -18,4 +20,6 @@ plt.xlabel('Street Names')
 plt.ylabel('Number of Parking Meters')
 plt.xticks(rotation=45)
 plt.tight_layout()
+os.makedirs('charts', exist_ok=True)
+plt.savefig(os.path.join('charts', 'meter_count_by_street.png'), dpi=110)
 plt.show()
