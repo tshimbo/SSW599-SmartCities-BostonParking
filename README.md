@@ -1,22 +1,20 @@
-# SSW599-SmartCities-BostonParking
+# Boston Parking Finder — SSW599 Smart Cities
 
-Our project seeks to alleviate the persistent challenge of finding parking in Boston by leveraging real-time data through an open-source Boston Parking API, providing users with accurate information on public parking spaces to enhance decision-making and mitigate traffic congestion and frustration.
-Link to API: https://bostonopendata-boston.opendata.arcgis.com/datasets/boston::parking-meters/about
-<<<<<<< HEAD
-After running the SSW599BostonParking.py file, an interactive map with popup should appear within the folder structure and allow you to see a map of all of the Boston Parking meters
+Maps every public parking meter in Boston using the city's open data, to make finding parking faster and cut down on traffic from drivers circling for a spot.
 
-How to run locally :
+**Data source:** [Analyze Boston — Parking Meters](https://bostonopendata-boston.opendata.arcgis.com/datasets/boston::parking-meters/about)
 
-1. Download the following modules :
+## What it does
+- `SSW599BostonParking.py` — builds an interactive map (`Boston_Parking_Map.html`) with a popup for each meter
+- `rate_visualizer.py` — visualizes meter pricing
+- `meter_count_visualizer.py` — visualizes meter density by area
 
+## Run it locally
+```bash
+pip install pandas folium
+python3 SSW599BostonParking.py
 ```
-$pip install pandas
-```
+Then open the generated `Boston_Parking_Map.html` in your browser.
 
-```
-$pip install folium
-```
-
-2. Once the installations are complete, run SSW599BostonParking.py
-
-3. Once the file runs, it should create an html file with a new interactive map. Click the html file to view the map.
+## Tech
+Python · pandas · folium · GeoJSON
